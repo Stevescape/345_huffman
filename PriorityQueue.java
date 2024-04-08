@@ -1,6 +1,6 @@
 public class PriorityQueue 
 {
-    // Implement a min heap
+    // Implement a min heap comparing node frequencies
     private Node[] queue;
     private int size;
 
