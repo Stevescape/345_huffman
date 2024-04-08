@@ -30,6 +30,12 @@ public class Node implements Comparable<Node>
     @Override
     public int compareTo(Node other)
     {
-        return this.val.compareTo(other.val);
+        if (this.freq >= other.freq)
+        {
+            return 1;
+        } else
+        {
+            return -1;
+        }
     }
 }

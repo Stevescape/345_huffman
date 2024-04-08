@@ -19,15 +19,15 @@ public class HashMap
         this.ogCap = cap;
     }
 
-    public Pair get(String name)
+    public String get(String name)
     {
         Pair cur = arr[hash(name, arr.length)];
         while (cur != null)
         {
             
-            if (cur.key == name)
+            if (cur.key.equals(name))
             {
-                return cur;
+                return cur.value;
             }
             cur = cur.next;
         }
@@ -43,7 +43,7 @@ public class HashMap
         while (cur != null)
         {
             // Update value if it exists
-            if (cur.key == key)
+            if (cur.key.equals(key))
             {
                 cur.value = value;
                 return;
@@ -63,10 +63,10 @@ public class HashMap
         size++;
     }
 
-    public Pair remove(String name)
+    public String remove(String name)
     {
         // Grab patient before we remove it
-        Pair retVal = this.get(name);
+        String retVal = this.get(name);
         
         int index = hash(name, arr.length);
         arr[index] = removeRec(arr[index], name);
@@ -98,7 +98,7 @@ public class HashMap
         }
 
         // If found the node, return the tail to skip over it
-        if (head.key == name)
+        if (head.key.equals(name))
         {
             return head.next;
         }
