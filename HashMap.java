@@ -1,26 +1,5 @@
 public class HashMap 
 {
-    private class Pair
-    {
-        public String key;
-        public String value;
-        public Pair next;
-
-        public Pair(String key, String value, Pair next)
-        {
-            this.key = key;
-            this.value = value;
-            this.next = next;
-        }
-
-        public Pair(String key, String value)
-        {
-            this.key = key;
-            this.value = value;
-            this.next = null;
-        }
-    }
-
     private int DEFAULT_SIZE = 11;
     private Pair[] arr;
     private int size;

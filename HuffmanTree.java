@@ -1,9 +1,11 @@
+import java.util.PriorityQueue;
+
 public class HuffmanTree 
 {
-    private PriorityQueue queue;
+    private PriorityQueue<Node> queue;
     private Node head;
 
-    public HuffmanTree(PriorityQueue queue)
+    public HuffmanTree(PriorityQueue<Node> queue)
     {
         this.queue = queue;
         head = null;
@@ -11,32 +13,42 @@ public class HuffmanTree
 
     public HuffmanTree()
     {
-        queue = new PriorityQueue();
+        queue = new PriorityQueue<Node>();
     }
 
     public void insertLeaf(Node leaf)
     {
         assert leaf.left == null && leaf.right == null;
-        queue.insert(leaf);
+        queue.add(leaf);
     }
 
-    public void createTree()
+    public Node createTree()
     {
         while (queue.size() > 1)
         {
             // More frequent goes left
             // Less frequent goes right
-            Node right = queue.removeMin();
-            Node left = queue.removeMin();
+            Node right = queue.poll();
+            Node left = queue.poll();
             
             assert(left.freq >= right.freq);
-
+            Node head = new Node(left.freq + right.freq);
+            head.left = left;
+            head.right = right;
+            queue.add(head);
         }
+        
+        // Should only be new head remaining in queue
+        assert queue.size() == 1;
+        this.head = queue.poll();
+        return this.head;
     }
 
     public HashMap convertMap()
     {
-        return new HashMap();
+        HashMap map = new HashMap();
+
+        return map;
     }
 
 }
