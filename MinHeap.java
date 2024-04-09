@@ -41,27 +41,26 @@ public class MinHeap {
         if (size==numItems){
             resize(true);
         }
-        heap[numItems] = el;
-        numItems++;
+        heap[numItems++] = el;
         int cur = numItems-1;
-        int freq1 = heap[cur].freq;
-        int freq2 = heap[parent(cur)].freq;
-        while(freq1<freq2){
+        int curFreq = heap[cur].freq;
+        int parentFreq = heap[parent(cur)].freq;
+        while(curFreq<parentFreq){
             swap(cur, parent(cur));
             cur = parent(cur);
-            freq1 = heap[cur].freq;
-            freq2 = heap[parent(cur)].freq;
+            curFreq = heap[cur].freq;
+            parentFreq = heap[parent(cur)].freq;
         }
     }
 
     private void heapify(int pos){
-        int freq1 = heap[pos].freq;
-        int freqLeft = heap[leftChild(pos)].freq;
-        int freqRight = heap[rightChild(pos)].freq;
-        if (freq1 > freqLeft){
+        int curFreq = heap[pos].freq;
+        int freqLeft = (leftChild(pos)<numItems) ? heap[leftChild(pos)].freq : Integer.MAX_VALUE ;
+        int freqRight = (rightChild(pos)<numItems) ? heap[rightChild(pos)].freq : Integer.MAX_VALUE;
+        if (curFreq > freqLeft && freqLeft<=freqRight){
             swap(pos, leftChild(pos));
             heapify(leftChild(pos));
-        } else if (freq1> freqRight) {
+        } else if (curFreq > freqRight) {
             swap(pos, rightChild(pos));
             heapify(rightChild(pos));
         }
@@ -71,7 +70,7 @@ public class MinHeap {
         Node rem = heap[0];
         heap[0] = heap[--numItems];
         heapify(0);
-        if (size>0 && numItems<=size/4 ){
+        if (size > 0 && numItems <= size/4 ){
             resize(false);
         }
         return rem;
