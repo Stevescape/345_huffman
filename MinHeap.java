@@ -26,7 +26,7 @@ public class MinHeap {
     private void swap(int one, int two){
         Node phony = heap[one];
         heap[one] = heap[two];
-        heap[two] = heap[one];
+        heap[two] = phony;
     }
 
     private void resize(boolean larger) {

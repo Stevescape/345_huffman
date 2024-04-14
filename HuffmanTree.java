@@ -82,4 +82,28 @@ public class HuffmanTree
         printRec(cur.right, str+"1");
     }
 
+
+    public String decode(String binaryString) {
+        String decodedText = "";
+        Node current = head; // Start at the head of the Huffman tree
+
+        for (int i = 0; i < binaryString.length(); i++) {
+            char bit = binaryString.charAt(i);
+
+            // Move left for '0', right for '1'
+            if (bit == '0') {
+                current = current.left;
+            } else if (bit == '1') {
+                current = current.right;
+            }
+
+            // If a leaf node is reached, append the character
+            // and reset current to start from the head again
+            if (current.isLeaf()) {
+                decodedText += current.val + "";
+                current = head;
+            }
+        }
+        return decodedText.toString();
+    }
 }
