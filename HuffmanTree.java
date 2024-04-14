@@ -36,6 +36,8 @@ public class HuffmanTree
      * Creates a Huffman tree from the priority queue in the object
      * 
      * Returns the root node of the huffman tree
+     * 
+     * Runtime = O(NLogN)
      */
     public Node createTree()
     {
@@ -63,6 +65,7 @@ public class HuffmanTree
      * Converts the priority queue into a hashmap with
      * the character being mapped to the encoding
      * 
+     * Runtime = O(N)
      */
     public HashMap convertMap()
     {
@@ -89,6 +92,7 @@ public class HuffmanTree
     /*
      * Prints out all the encodings for each character 
      * 
+     * O(N)
      */
     public void printEncodings()
     {
@@ -113,6 +117,8 @@ public class HuffmanTree
 
     /*
      * Returns the decoded string of the binaryString given.
+     * 
+     * O(N)
      */
     public String decode(String binaryString) {
         String decodedText = "";
