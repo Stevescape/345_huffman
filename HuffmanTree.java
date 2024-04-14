@@ -5,6 +5,7 @@ public class HuffmanTree
     private HashMap map;
     private String encoding;
 
+    // Create the object with the queue object added
     public HuffmanTree(PriorityQueue queue)
     {
         this.queue = queue;
@@ -12,6 +13,7 @@ public class HuffmanTree
         map = new HashMap();
     }
 
+    // Create an object with no queue object 
     public HuffmanTree()
     {
         queue = new PriorityQueue();
@@ -19,12 +21,22 @@ public class HuffmanTree
         map = new HashMap();
     }
 
+    /*
+     * Inserts a leaf node into the priority queue
+     * 
+     * @param leaf
+     */
     public void insertLeaf(Node leaf)
     {
         assert leaf.left == null && leaf.right == null;
         queue.insert(leaf);
     }
 
+    /*
+     * Creates a Huffman tree from the priority queue in the object
+     * 
+     * Returns the root node of the huffman tree
+     */
     public Node createTree()
     {
         while (queue.size() > 1)
@@ -47,12 +59,21 @@ public class HuffmanTree
         return this.head;
     }
 
+    /*
+     * Converts the priority queue into a hashmap with
+     * the character being mapped to the encoding
+     * 
+     */
     public HashMap convertMap()
     {
         convertRec(head, "");
         return map;
     }
 
+    /*
+     * Recurisve helper function for converting queue into a
+     * hashmap
+     */
     public void convertRec(Node cur, String str)
     {
         if (cur.isLeaf())
@@ -65,11 +86,18 @@ public class HuffmanTree
         convertRec(cur.right, str+"1");
     }
 
+    /*
+     * Prints out all the encodings for each character 
+     * 
+     */
     public void printEncodings()
     {
         printRec(head, "");
     }
 
+    /*
+     *  Recursive helper function for the printEncodings 
+     */
     private void printRec(Node cur, String str)
     {
         if (cur.isLeaf())
@@ -83,6 +111,9 @@ public class HuffmanTree
     }
 
 
+    /*
+     * Returns the decoded string of the binaryString given.
+     */
     public String decode(String binaryString) {
         String decodedText = "";
         Node current = head; // Start at the head of the Huffman tree

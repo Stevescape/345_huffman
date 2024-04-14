@@ -1,3 +1,11 @@
+/*
+ * A node in the Huffman tree that stores the frequency
+ * of a chracter, the character itself, and pointers
+ * to the left and right child
+ * 
+ * The node can also be used without storing a character and represent
+ * a subtree with the combiend frequency
+ */
 public class Node implements Comparable<Node>
 {
     private boolean leaf;

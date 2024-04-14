@@ -1,3 +1,6 @@
+/*
+ * Hashmap that uses separate chaining for collision management
+ */
 public class HashMap 
 {
     private int DEFAULT_SIZE = 11;
