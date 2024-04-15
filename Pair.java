@@ -1,3 +1,8 @@
+/*
+ * An entry in the hashmap with a string mapped to a string.
+ * Also has a pointer to the next object in the hashmap.
+ */
+
 public class Pair {
     public String key;
     public String value;
