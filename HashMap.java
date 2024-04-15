@@ -66,48 +66,9 @@ public class HashMap
         size++;
     }
 
-    public String remove(String name)
-    {
-        // Grab patient before we remove it
-        String retVal = this.get(name);
-        
-        int index = hash(name, arr.length);
-        arr[index] = removeRec(arr[index], name);
-        // Only decrement if actually removed something
-        if (retVal != null)
-        {
-            size--;
-        }
-
-        if (size < arr.length/4 && size > ogCap)
-        {
-            // If arr.length/2 goes below cap, set it to cap
-            int newSize = (getNextPrime(arr.length/2) > ogCap) ? getNextPrime(arr.length/2) : ogCap;
-            resize(newSize);
-        }
-        return retVal;
-    }
-
     public int size()
     {
         return size;
-    }
-
-    private Pair removeRec(Pair head, String name)
-    {   
-        if (head == null)
-        {
-            return head;
-        }
-
-        // If found the node, return the tail to skip over it
-        if (head.key.equals(name))
-        {
-            return head.next;
-        }
-
-        head.next = removeRec(head.next, name);
-        return head;
     }
 
     private int hash(String str, int max)
