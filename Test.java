@@ -5,7 +5,7 @@ public class Test
     {
         HuffmanTree tree = new HuffmanTree();
 
-        String test = "test";
+        String test = "Huffman Test String";
         
         int[] counts = new int[1000];
 
@@ -28,5 +28,6 @@ public class Test
         }
 
         tree.createTree();
+        tree.printEncodings();
     }
 }
