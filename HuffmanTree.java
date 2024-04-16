@@ -3,7 +3,6 @@ public class HuffmanTree
     private PriorityQueue queue;
     private Node head;
     private HashMap map;
-    private String encoding;
 
     // Create the object with the queue object added
     public HuffmanTree(PriorityQueue queue)

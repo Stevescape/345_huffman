@@ -6,20 +6,17 @@ public class HashMap
     private int DEFAULT_SIZE = 11;
     private Pair[] arr;
     private int size;
-    private int ogCap;
 
     public HashMap()
     {
         arr = new Pair[DEFAULT_SIZE];
         size = 0;
-        this.ogCap = DEFAULT_SIZE;
     }
 
     public HashMap(int cap)
     {
         arr = new Pair[cap];
         size = 0;
-        this.ogCap = cap;
     }
 
     public String get(String name)
