@@ -16,3 +16,6 @@ Two files, "Lorem.txt" and "random.txt" have been provided. The compression rati
 size divided by the compressed size. This test will prompt the user for input through the console. When it 
 asks for a file name that should be the file path such as 'Lorem.txt' followed by enter/return. The test will
 run the encoding procedure and report which file was compressed more efficiently.
+
+### Decompression Test
+This test is used to confirm the lossless compression aspect of the the huffman encoding algorithm. This test asks the user for an input of a file ("Lorem.txt" or "random.txt") and followed by enter/return. The algorithm prints the compressed data representation, decompresses the endocing, and prints the decompressed text. The original text and the decompressed text are then comapred for loss of data. 
