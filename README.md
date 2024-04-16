@@ -4,6 +4,12 @@ Encoding algorithm.
 
 ## Test Instructions
 
+### Huffman Tree Test 
+This test file just compiles a Huffman Tree preloaded with the string "Huffman Test String" and was
+used to initally test the HuffmanTree class. The test file prints out the encodings for each of the
+characters in the test string. The test string could be changed out by editing the string under the
+test variable.
+
 ### Compression Ratio Calculator:
 This test file calculates the compression ratios of 2 .txt files and compares their compression ratios. 
 Two files, "Lorem.txt" and "random.txt" have been provided. The compression ratio is equal to the uncompressed

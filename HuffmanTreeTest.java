@@ -1,4 +1,4 @@
-public class Test
+public class HuffmanTreeTest
     //This was an initial test done just to make sure everything was running with no errors
 {
     public static void main(String[] args)
@@ -8,7 +8,6 @@ public class Test
         String test = "Huffman Test String";
         
         int[] counts = new int[1000];
-
         char[] temp = new char[1000];
         int j = 0;
         for (int i = 0; i < test.length(); i++)
