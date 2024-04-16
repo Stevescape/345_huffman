@@ -2,6 +2,17 @@
 A program written in Java that will take text and encode it following a greedy Huffman
 Encoding algorithm. 
 
+## Process followed
+
+1. Read in a file as a string
+2. Convert the string into a Huffman Tree using a priority queue
+    1. Count the frequency of each character in the string
+    2. Insert each charcter into a priority queue with the frequency as the key
+    3. Remove the 2 least frequent nodes and combine them under a node adding up the frequencies
+    4. Repeat until there is 1 node left which will be the root node
+3. Convert the Huffman Tree into a HashMap with the characters mapped to the encodings
+4. Use the HashMap to encode and decode the original string.
+
 ## Test Instructions
 
 ### Huffman Tree Test 
